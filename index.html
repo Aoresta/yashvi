@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Yaar 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Kalam:wght@400;700&family=Noto+Serif+Devanagari:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #e8336d;
+    --gold: #f5c842;
+    --peach: #ffd6c0;
+    --cream: #fff8f0;
+    --deep: #2a0a1e;
+    --pink: #ff85a1;
+    --marigold: #ffb347;
+    --teal: #3dbfb8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Kalam', cursive;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='28' font-size='28'%3E🌸%3C/text%3E%3C/svg%3E") 16 16, pointer;
+  }
+
+  /* Floating petals bg */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(232,51,109,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(255,181,71,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255,133,161,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .petal {
+    position: fixed;
+    font-size: 1.4rem;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.7;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-60px) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* ——— HERO ——— */
+  .hero {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .frame {
+    border: 3px solid var(--gold);
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+    padding: 50px 40px;
+    max-width: 560px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 40px rgba(232,51,109,0.15), inset 0 0 30px rgba(245,200,66,0.08);
+    animation: breathe 4s ease-in-out infinite;
+    position: relative;
+  }
+
+  @keyframes breathe {
+    0%, 100% { border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%; }
+    50% { border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; }
+  }
+
+  .frame::before {
+    content: '🌼';
+    position: absolute;
+    font-size: 2.5rem;
+    top: -20px; left: -20px;
+    animation: spin 6s linear infinite;
+  }
+  .frame::after {
+    content: '🌸';
+    position: absolute;
+    font-size: 2.5rem;
+    bottom: -20px; right: -20px;
+    animation: spin 6s linear infinite reverse;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .sorry-tag {
+    display: inline-block;
+    background: var(--rose);
+    color: white;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+    animation: wiggle 2s ease-in-out infinite;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    color: var(--deep);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: #7a4060;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .heart-bounce {
+    display: inline-block;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    20% { transform: scale(1.3); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.2); }
+    80% { transform: scale(1); }
+  }
+
+  /* ——— DIVIDER ——— */
+  .divider {
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 10px 0;
+    letter-spacing: 8px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ——— SECTIONS ——— */
+  .section {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+  }
+
+  /* ——— DIALOGUE CARDS ——— */
+  .dialogue-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 35px;
+    margin: 28px 0;
+    box-shadow: 6px 6px 0 var(--gold), 0 0 0 2px var(--gold);
+    position: relative;
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dialogue-card:nth-child(even) {
+    transform: rotate(1deg);
+    box-shadow: -6px 6px 0 var(--rose), 0 0 0 2px var(--rose);
+  }
+
+  .dialogue-card:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 8px 8px 0 var(--marigold), 0 0 0 2px var(--marigold);
+  }
+
+  .film-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--deep);
+    color: var(--gold);
+    padding: 3px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .dialogue-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--deep);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .dialogue-caption {
+    font-size: 0.9rem;
+    color: #a06080;
+    font-style: normal;
+  }
+
+  .card-emoji {
+    position: absolute;
+    top: -16px;
+    right: 20px;
+    font-size: 2rem;
+  }
+
+  /* ——— ILLUSTRATION STRIP ——— */
+  .illus-strip {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .illus-char {
+    background: white;
+    border: 2px solid var(--peach);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    box-shadow: 4px 4px 0 var(--rose);
+    animation: bob 2.5s ease-in-out infinite;
+  }
+
+  .illus-char:nth-child(2) { animation-delay: 0.4s; }
+  .illus-char:nth-child(3) { animation-delay: 0.8s; }
+  .illus-char:nth-child(4) { animation-delay: 1.2s; }
+  .illus-char:nth-child(5) { animation-delay: 1.6s; }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* ——— APOLOGY LETTER ——— */
+  .letter-box {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    border-left: 5px solid var(--rose);
+    box-shadow: 0 10px 40px rgba(232,51,109,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .letter-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--rose) 0px, var(--rose) 20px,
+      var(--gold) 20px, var(--gold) 40px,
+      var(--pink) 40px, var(--pink) 60px
+    );
+  }
+
+  .letter-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--rose);
+    margin-bottom: 20px;
+  }
+
+  .letter-para {
+    font-size: 1.05rem;
+    color: #4a2038;
+    line-height: 1.9;
+    margin-bottom: 14px;
+  }
+
+  .highlight-line {
+    display: inline-block;
+    background: linear-gradient(180deg, transparent 60%, rgba(245,200,66,0.5) 60%);
+    font-weight: 700;
+    color: var(--deep);
+  }
+
+  /* ——— REASONS GRID ——— */
+  .reasons-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--deep);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+  }
+
+  .reason-item {
+    background: white;
+    border-radius: 16px;
+    padding: 22px 18px;
+    text-align: center;
+    border: 2px dashed var(--rose);
+    transition: all 0.3s ease;
+  }
+
+  .reason-item:hover {
+    background: var(--rose);
+    color: white;
+    border-color: var(--rose);
+    transform: translateY(-4px);
+  }
+
+  .reason-item:hover .reason-text { color: white; }
+
+  .reason-emoji { font-size: 2.2rem; display: block; margin-bottom: 10px; }
+  .reason-text { font-size: 0.95rem; color: #5a3050; line-height: 1.4; }
+
+  /* ——— FILMI PROMISE ——— */
+  .promise-box {
+    background: linear-gradient(135deg, var(--deep) 0%, #4a1232 100%);
+    border-radius: 24px;
+    padding: 44px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .promise-box::after {
+    content: '✨';
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.05;
+    right: -20px;
+    bottom: -20px;
+  }
+
+  .promise-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .promise-line {
+    color: var(--peach);
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+
+  .promise-line strong {
+    color: var(--gold);
+  }
+
+  /* ——— FINAL CTA ——— */
+  .cta-section {
+    text-align: center;
+    padding: 60px 20px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--deep);
+    margin-bottom: 14px;
+  }
+
+  .cta-section p {
+    color: #7a4060;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .forgive-btn {
+    display: inline-block;
+    background: var(--rose);
+    color: white;
+    font-family: 'Kalam', cursive;
+    font-size: 1.2rem;
+    padding: 16px 44px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #a01848, 0 10px 20px rgba(232,51,109,0.3);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .forgive-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #a01848, 0 14px 30px rgba(232,51,109,0.4);
+  }
+
+  .forgive-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #a01848;
+  }
+
+  /* ——— MARIGOLD BORDER ——— */
+  .marigold-row {
+    text-align: center;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    margin: 30px 0;
+    opacity: 0.7;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ——— CONFETTI ——— */
+  .confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 999;
+    animation: confettiFall 2s ease-in forwards;
+    opacity: 0;
+  }
+
+  @keyframes confettiFall {
+    0% { opacity: 1; transform: translateY(-20px) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(100px) rotate(540deg); }
+  }
+
+  /* ——— POPUP ——— */
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42,10,30,0.7);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popup-overlay.show { display: flex; }
+
+  .popup-box {
+    background: white;
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .popup-emoji { font-size: 4rem; display: block; margin-bottom: 16px; }
+  .popup-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--rose);
+    margin-bottom: 12px;
+  }
+  .popup-box p { color: #5a3050; line-height: 1.7; margin-bottom: 24px; }
+  .popup-close {
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-family: 'Kalam', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating petals -->
+<div id="petals"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="frame">
+    <div class="sorry-tag">🎬 A Very Filmi Sorry</div>
+    <h1>Yaar, <em>Maaf<br>Kar De</em> Na…</h1>
+    <p class="hero-sub">
+      Main janta hoon maine galat kiya.<br>
+      Par tu bhi jaanti hai — i am not this kind of guy<br>
+      <strong>drama nahi, sirf tragedy hai.</strong> 🥺
+    </p>
+    <div class="heart-bounce">💗</div>
+  </div>
+</section>
+
+<div class="marigold-row">🌼 🌸 🌼 🌸 🌼 🌸 🌼</div>
+
+<!-- ============ ILLUSTRATION STRIP ============ -->
+<div class="illus-strip">
+  <div class="illus-char" title="Guilt">😔</div>
+  <div class="illus-char" title="Flowers">💐</div>
+  <div class="illus-char" title="Tears">🥹</div>
+  <div class="illus-char" title="Pleading">🙏</div>
+  <div class="illus-char" title="Love">💝</div>
+</div>
+
+<!-- ============ BOLLYWOOD DIALOGUES ============ -->
+<section class="section">
+  <div class="dialogue-card">
+    <span class="card-emoji">🎥</span>
+    <span class="film-label">🎬 Filmi Feeling #1</span>
+    <p class="dialogue-quote">"Kabhi kabhi ek pal ki galti, zindagi bhar ka dard de jaati hai… aur woh dard, mujhe har waqt yaad dilaata hai tujhe."</p>
+    <p class="dialogue-caption">— Jo main feel karaya , honestly 😭</p>
+  </div>
+
+  <div class="dialogue-card">
+    <span class="card-emoji">🌹</span>
+    <span class="film-label">🎬 DDLJ Vibes</span>
+    <p class="dialogue-quote">"You might think mei itni baat toh krta nhi phir bhi aise try, obv i care abt you"</p>
+    <p class="dialogue-caption">— Bhai yeh waali lines thori si zyada hi DDLJ vibes de rhi thi toh hata di😭 🏃‍♀️💨</p>
+  </div>
+
+  <div class="dialogue-card">
+    <span class="card-emoji">✨</span>
+    <span class="film-label">🎬 From My Heart</span>
+    <p class="dialogue-quote">"Teri aankhon mein dekha jo disappointment tha — woh meri galti ka disappointment tha."</p>
+    <p class="dialogue-caption">— Original dialogue, certified from aoresta 💘</p>
+  </div>
+
+  <div class="dialogue-card">
+    <span class="card-emoji">🍿</span>
+    <span class="film-label">🎬 K3G Style</span>
+    <p class="dialogue-quote">"Keh diya na? Keh diya! Aur ab sun — tujhse zyaada oldest classmate koi nahi hai is school mein. "</p>
+    <p class="dialogue-caption">— Idk how but we have been in same class more than i have been together with yash shourya 🫶</p>
+  </div>
+</section>
+
+<div class="divider">💛 💛 💛</div>
+
+<!-- ============ APOLOGY LETTER ============ -->
+<section class="section">
+  <div class="letter-box">
+    <h2>💌 Dil(this isnt the right word here, gussa mt hona) Se Letter</h2>
+    <p class="letter-para">
+      Sun yaar, main directly bolunga —
+      <span class="highlight-line">maine jo kiya woh theek nahi tha.</span>
+      Koi filmi excuse nahi, koi background score nahi.
+      Bas ek seedha, sorry.
+    </p>
+    <p class="letter-para">
+      Tu meri <span class="highlight-line">one of the closest girl-friend hai</span> —
+      hum kam baat krte h ab but when we talk , we talk abt almost every imp thing
+      Tu lead hai. Always.
+    </p>
+    <p class="letter-para">
+      Agar tu maaf kar de, toh I promise —
+      <span class="highlight-line">aage se aisa kuch nhi krunga</span>
+      Infact devanshi bhi abhi tak gussa hai, and chorh aur nhi bta skta. 🫂
+    </p>
+    <p class="letter-para" style="color: var(--rose); font-size: 1.15rem;">
+      Maheshwari Ji aka ChatterBox 🌸
+    </p>
+  </div>
+</section>
+
+<div class="marigold-row">🌺 🌻 🌺 🌻 🌺 🌻 🌺</div>
+
+<!-- ============ REASONS YOU'RE AMAZING ============ -->
+<section class="section">
+  <h2 class="reasons-title">Why You're one of My Favorite person 🎬</h2>
+  <div class="reasons-grid">
+    <div class="reason-item">
+      <span class="reason-emoji">🌟</span>
+      <p class="reason-text">Legit straightforward  vrna log bhot baate ghumate hai</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-emoji">😂</span>
+      <p class="reason-text">I always had soft corner for yappers, cuz i am one too</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-emoji">💪</span>
+      <p class="reason-text">Yaa but tera dance ka and bollywood ka shauk is out of my jurisdiction</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-emoji">🫂</span>
+      <p class="reason-text">Isliye yeh website bekaar hogi cuz i got no idea abt bollywood</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-emoji">🎵</span>
+      <p class="reason-text">ek aur chiz tere saath logo ki gossiping krna is better than doing it with devanshi</p>
+    </div>
+    <div class="reason-item">
+      <span class="reason-emoji">🌼</span>
+      <p class="reason-text">Meoww, aur nhi ptaa kya likhu</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILMI PROMISE ============ -->
+<section class="section">
+  <div class="promise-box">
+    <h2>🌙 Yeh Vaada Raha(yeh wala part idk kaise edit kru toh you can skip)</h2>
+    <p class="promise-line">Main <strong>tumhare saath honest rahunga/rahungi</strong> — jaise Alia ne Dear Zindagi mein seekha.</p>
+    <p class="promise-line">Main <strong>tumhe sunta/sunti rahunga/rahungi</strong> — jaise SRK har ek baat ko seriously leta hai.</p>
+    <p class="promise-line">Main <strong>kabhi bhi tumhe hurt nahi karunga/karungi</strong> — warna Karan Johar rota hai na wahi scene.</p>
+    <p class="promise-line" style="margin-top: 20px; font-size: 1.2rem;">
+      <strong style="color: var(--gold); font-size: 1.4rem;">Kyunki tu mere liye woh wala character hai<br>jo till the end rehta hai. 💛</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <h2>Ab Bol De Na… 🥺</h2>
+  <p>Ek click karo aur sab theek ho jaayega. Promise!</p>
+  <button class="forgive-btn" onclick="handleForgive()">💗 Maaf Kar Diya!</button>
+  <br><br>
+  <small style="color:#a06080; font-size:0.85rem;">(Ik just a web isnt enough to compensate for my doing but i neevr back down trying 🎵)</small>
+</section>
+
+<!-- ============ POPUP ============ -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <span class="popup-emoji">🎊</span>
+    <h3>Yayyyy!! 🥳</h3>
+    <p>Tujhe pata hai tu kya hai?<br><strong>"On of my favorite person."</strong><br>Thank you yaar, seriously.! 💖</p>
+    <button class="popup-close" onclick="closePopup()">Aww! 🌸</button>
+  </div>
+</div>
+
+<script>
+  // Petals
+  const petalEmojis = ['🌸','🌺','✿','🌼','💮','🌹'];
+  const container = document.getElementById('petals');
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (6 + Math.random() * 8) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.fontSize = (1 + Math.random()) + 'rem';
+    container.appendChild(p);
+  }
+
+  // Confetti burst
+  function burst() {
+    const colors = ['#e8336d','#f5c842','#ff85a1','#3dbfb8','#ffb347','#fff'];
+    for (let i = 0; i < 60; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.left = (30 + Math.random() * 40) + 'vw';
+      c.style.top = '40vh';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.animationDelay = (Math.random() * 0.5) + 's';
+      c.style.transform = `rotate(${Math.random()*360}deg)`;
+      c.style.setProperty('--tx', (Math.random()*200 - 100) + 'px');
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2500);
+    }
+  }
+
+  function handleForgive() {
+    burst();
+    setTimeout(() => {
+      document.getElementById('popup').classList.add('show');
+    }, 600);
+  }
+
+  function closePopup() {
+    document.getElementById('popup').classList.remove('show');
+  }
+</script>
+</body>
+</html>
